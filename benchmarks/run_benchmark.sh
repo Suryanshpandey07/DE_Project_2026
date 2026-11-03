@@ -37,7 +37,7 @@ for f in $(ls "$TMP"/*.sql | sort -V); do
   : > "$OUT/$id.txt"
   for ((i = 1; i <= RUNS; i++)); do
     if [[ "$type" == "WRITE" ]]; then
-      sql="SET search_path TO practo; BEGIN; EXPLAIN (ANALYZE, BUFFERS) $query ROLLBACK;"
+      sql="SET search_path TO practo; BEGIN; EXPLAIN (ANALYZE, BUFFERS) $query; ROLLBACK;"
     else
       sql="SET search_path TO practo; EXPLAIN (ANALYZE, BUFFERS) $query"
     fi
