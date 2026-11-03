@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Practo Doctor Appointments Database: DBMS Project
 
 **Course:** Database Management Systems · **Year:** B.Tech 2nd year · **Team size:** 4
@@ -16,7 +15,6 @@
 | `CHECKPOINTS.md` | Checkpoint dates and the files each one needs (DE and AP repos) |
 
 **Getting started:** **clone this repository and push it into your team's DE repo** (the DE repo you submitted in the form); the steps are in [`CHECKPOINTS.md`](CHECKPOINTS.md). Keep the structure shown in [Repository structure](#repository-structure-submit-exactly-this). Unzip `seed_data.zip` inside your project folder, but don't commit the CSV files. Deadlines are in [`CHECKPOINTS.md`](CHECKPOINTS.md). Then begin with Phase 1.
-
 
 ---
 
@@ -764,50 +762,3 @@ SET status = 'CANCELLED', payment_status = 'REFUNDED'
 WHERE doctor_id = 504 AND status = 'BOOKED'
   AND slot_start >= '2026-07-03' AND slot_start < '2026-07-04';
 ```
-=======
-# ⚔️ CP Battle
-
-**A competitive programming platform where two random players battle to solve Codeforces problems.**
-
-CP Battle transforms competitive programming practice into a head-to-head competition. Two players are randomly matched, given the same Codeforces problem, and challenged to solve it within a fixed time limit.
-
-🎯 Code faster. Think smarter. Win the battle.
-
-## 🚀 Features
-
-- 🎯 Random matchmaking between two players
-- 💻 Codeforces API integration for programming problems
-- ⏱️ Timed coding battles
-- ⚔️ Head-to-head competitive programming
-- 🏆 Automatic winner determination
-- 📊 User profiles and battle history
-- 🥇 Competitive leaderboards and ratings
-- 📈 Performance tracking and statistics
-
-## 🛠️ Tech Stack
-
-- **Frontend:** JavaScript, HTML, CSS
-- **Backend:** Node.js, Express.js
-- **Python Backend:** FastAPI
-- **Database:** PostgreSQL
-- **External API:** Codeforces API
-
-## 🏗️ Architecture
-
-- **JavaScript:** Interactive user interface
-- **Node.js & Express.js:** API endpoints, matchmaking, and battle management
-- **FastAPI:** Python-based services and additional processing
-- **PostgreSQL:** Persistent storage for users, battles, and results
-- **Codeforces API:** Problem information and submission data
-
-## ⚙️ Getting Started
-
-### Prerequisites
-
-Make sure you have the following installed:
-
-- Node.js
-- Python 3
-- PostgreSQL
-- Git
->>>>>>> c9810b2b90a0da2ac7e57e8692195601a06e2edf
