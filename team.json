@@ -1,0 +1,27 @@
+{
+  "team_number": "T0135",
+  "group_lead": {
+    "name": "Shubham Makkar",
+    "enrollment_no": "2501010445",
+    "github": "shubhammakkar2006"
+  },
+  "members": [
+    {
+      "name": "Tushant Sharma",
+      "enrollment_no": "2501010481",
+      "github": "BEEN-AXIS"
+    },
+    {
+      "name": "Suryansh Pandey",
+      "enrollment_no": "2501010465",
+      "github": "Suryanshpandey07"
+    },
+    {
+      "name": "Vanisha Vashisth",
+      "enrollment_no": "2501010609",
+      "github": "vanishavashisth-tech"
+    }
+  ],
+  "postgres_version": "18.6",
+  "laptop_used_for_benchmarks": "MacBook Pro M4"
+}
