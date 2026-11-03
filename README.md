@@ -43,3 +43,11 @@ Make sure you have the following installed:
 - Python 3
 - PostgreSQL
 - Git
+## 👥 Team Members
+
+| Name | GitHub Username |
+|---|---|
+| Suryansh Pandey | [Suryanshpandey07](https://github.com/Suryanshpandey07) |
+| Shubham Makkar | [shubhammakkar2006](https://github.com/shubhammakkar2006) |
+| Tushant Sharma | [BEEN-AXIS](https://github.com/BEEN-AXIS) |
+| Vanisha Vashisht | [vanishavashisth-tech](https://github.com/vanishavashisth-tech) |
