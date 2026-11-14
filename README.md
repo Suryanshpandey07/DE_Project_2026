@@ -22,10 +22,10 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead |Shubham Makkar|2501010445 | |https://github.com/shubhammakkar2006
-| Member 2 |Suryansh Pandey |2501010465 | |https://github.com/Suryanshpandey07
-| Member 3 |Vanisha Vashisth |2501010609 | |https://github.com/vanishavashisth-tech
-| Member 4 |Tushant Sharma |2501010481 | |https://github.com/BEEN-AXIS
+| Group Lead |Shubham Makkar|2501010445 | |shubhammakkar2006
+| Member 2 |Suryansh Pandey |2501010465 | |Suryanshpandey07
+| Member 3 |Vanisha Vashisth |2501010609 | |vanishavashisth-tech
+| Member 4 |Tushant Sharma |2501010481 | |BEEN-AXIS
 
 **Team No.:** T0135 · **Section:** E· **Repository URL:** Suryanshpandey07/DE_Project_2026
 
