@@ -1,48 +1,48 @@
 === R12 run 1 ===
-GroupAggregate  (cost=5007.69..5024.37 rows=734 width=25) (actual time=22.141..24.237 rows=14.00 loops=1)
+GroupAggregate  (cost=5020.69..5037.37 rows=734 width=25) (actual time=21.037..23.117 rows=14.00 loops=1)
   Group Key: (date_trunc('month'::text, slot_start)), consult_type
-  Buffers: shared hit=2726
-  ->  Sort  (cost=5007.69..5009.57 rows=750 width=17) (actual time=21.802..22.735 rows=51501.00 loops=1)
+  Buffers: shared hit=2739
+  ->  Sort  (cost=5020.69..5022.57 rows=750 width=17) (actual time=20.714..21.636 rows=51501.00 loops=1)
         Sort Key: (date_trunc('month'::text, slot_start)), consult_type
         Sort Method: quicksort  Memory: 3474kB
-        Buffers: shared hit=2726
-        ->  Seq Scan on appointments  (cost=0.00..4971.88 rows=750 width=17) (actual time=9.033..19.016 rows=51501.00 loops=1)
+        Buffers: shared hit=2739
+        ->  Seq Scan on appointments  (cost=0.00..4984.88 rows=750 width=17) (actual time=8.601..17.975 rows=51501.00 loops=1)
               Filter: (EXTRACT(year FROM slot_start) = '2026'::numeric)
               Rows Removed by Filter: 98499
-              Buffers: shared hit=2720
+              Buffers: shared hit=2733
 Planning:
-  Buffers: shared hit=218
-Planning Time: 0.277 ms
-Execution Time: 24.259 ms
+  Buffers: shared hit=260
+Planning Time: 0.364 ms
+Execution Time: 23.140 ms
 === R12 run 2 ===
-GroupAggregate  (cost=5007.69..5024.37 rows=734 width=25) (actual time=21.805..23.887 rows=14.00 loops=1)
+GroupAggregate  (cost=5020.69..5037.37 rows=734 width=25) (actual time=20.794..22.984 rows=14.00 loops=1)
   Group Key: (date_trunc('month'::text, slot_start)), consult_type
-  Buffers: shared hit=2726
-  ->  Sort  (cost=5007.69..5009.57 rows=750 width=17) (actual time=21.471..22.397 rows=51501.00 loops=1)
+  Buffers: shared hit=2739
+  ->  Sort  (cost=5020.69..5022.57 rows=750 width=17) (actual time=20.455..21.372 rows=51501.00 loops=1)
         Sort Key: (date_trunc('month'::text, slot_start)), consult_type
         Sort Method: quicksort  Memory: 3474kB
-        Buffers: shared hit=2726
-        ->  Seq Scan on appointments  (cost=0.00..4971.88 rows=750 width=17) (actual time=8.910..18.472 rows=51501.00 loops=1)
+        Buffers: shared hit=2739
+        ->  Seq Scan on appointments  (cost=0.00..4984.88 rows=750 width=17) (actual time=8.490..17.721 rows=51501.00 loops=1)
               Filter: (EXTRACT(year FROM slot_start) = '2026'::numeric)
               Rows Removed by Filter: 98499
-              Buffers: shared hit=2720
+              Buffers: shared hit=2733
 Planning:
-  Buffers: shared hit=218
-Planning Time: 0.281 ms
-Execution Time: 23.914 ms
+  Buffers: shared hit=260
+Planning Time: 0.324 ms
+Execution Time: 23.004 ms
 === R12 run 3 ===
-GroupAggregate  (cost=5007.69..5024.37 rows=734 width=25) (actual time=22.647..24.764 rows=14.00 loops=1)
+GroupAggregate  (cost=5020.69..5037.37 rows=734 width=25) (actual time=21.220..23.315 rows=14.00 loops=1)
   Group Key: (date_trunc('month'::text, slot_start)), consult_type
-  Buffers: shared hit=2726
-  ->  Sort  (cost=5007.69..5009.57 rows=750 width=17) (actual time=22.313..23.249 rows=51501.00 loops=1)
+  Buffers: shared hit=2739
+  ->  Sort  (cost=5020.69..5022.57 rows=750 width=17) (actual time=20.867..21.810 rows=51501.00 loops=1)
         Sort Key: (date_trunc('month'::text, slot_start)), consult_type
         Sort Method: quicksort  Memory: 3474kB
-        Buffers: shared hit=2726
-        ->  Seq Scan on appointments  (cost=0.00..4971.88 rows=750 width=17) (actual time=9.057..19.388 rows=51501.00 loops=1)
+        Buffers: shared hit=2739
+        ->  Seq Scan on appointments  (cost=0.00..4984.88 rows=750 width=17) (actual time=8.558..18.108 rows=51501.00 loops=1)
               Filter: (EXTRACT(year FROM slot_start) = '2026'::numeric)
               Rows Removed by Filter: 98499
-              Buffers: shared hit=2720
+              Buffers: shared hit=2733
 Planning:
-  Buffers: shared hit=218
-Planning Time: 0.276 ms
-Execution Time: 24.787 ms
+  Buffers: shared hit=260
+Planning Time: 0.339 ms
+Execution Time: 23.336 ms

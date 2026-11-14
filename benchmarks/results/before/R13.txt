@@ -1,36 +1,36 @@
 === R13 run 1 ===
-Seq Scan on clinics c  (cost=645.24..684.99 rows=750 width=34) (actual time=2.655..2.655 rows=0.00 loops=1)
+Seq Scan on clinics c  (cost=645.24..684.99 rows=750 width=34) (actual time=2.600..2.600 rows=0.00 loops=1)
   Filter: (NOT (ANY (clinic_id = (hashed SubPlan 1).col1)))
   Rows Removed by Filter: 1500
   Buffers: shared hit=285
   SubPlan 1
-    ->  Seq Scan on doctor_schedules sc  (cost=0.00..568.99 rows=30499 width=4) (actual time=0.004..1.106 rows=30499.00 loops=1)
+    ->  Seq Scan on doctor_schedules sc  (cost=0.00..568.99 rows=30499 width=4) (actual time=0.004..1.097 rows=30499.00 loops=1)
           Buffers: shared hit=264
 Planning:
   Buffers: shared hit=126
-Planning Time: 0.277 ms
-Execution Time: 2.687 ms
+Planning Time: 0.325 ms
+Execution Time: 2.632 ms
 === R13 run 2 ===
-Seq Scan on clinics c  (cost=645.24..684.99 rows=750 width=34) (actual time=2.685..2.685 rows=0.00 loops=1)
+Seq Scan on clinics c  (cost=645.24..684.99 rows=750 width=34) (actual time=2.583..2.583 rows=0.00 loops=1)
   Filter: (NOT (ANY (clinic_id = (hashed SubPlan 1).col1)))
   Rows Removed by Filter: 1500
   Buffers: shared hit=285
   SubPlan 1
-    ->  Seq Scan on doctor_schedules sc  (cost=0.00..568.99 rows=30499 width=4) (actual time=0.003..1.127 rows=30499.00 loops=1)
+    ->  Seq Scan on doctor_schedules sc  (cost=0.00..568.99 rows=30499 width=4) (actual time=0.003..1.076 rows=30499.00 loops=1)
           Buffers: shared hit=264
 Planning:
   Buffers: shared hit=126
-Planning Time: 0.280 ms
-Execution Time: 2.715 ms
+Planning Time: 0.271 ms
+Execution Time: 2.614 ms
 === R13 run 3 ===
-Seq Scan on clinics c  (cost=645.24..684.99 rows=750 width=34) (actual time=2.655..2.655 rows=0.00 loops=1)
+Seq Scan on clinics c  (cost=645.24..684.99 rows=750 width=34) (actual time=2.682..2.682 rows=0.00 loops=1)
   Filter: (NOT (ANY (clinic_id = (hashed SubPlan 1).col1)))
   Rows Removed by Filter: 1500
   Buffers: shared hit=285
   SubPlan 1
-    ->  Seq Scan on doctor_schedules sc  (cost=0.00..568.99 rows=30499 width=4) (actual time=0.004..1.115 rows=30499.00 loops=1)
+    ->  Seq Scan on doctor_schedules sc  (cost=0.00..568.99 rows=30499 width=4) (actual time=0.003..1.129 rows=30499.00 loops=1)
           Buffers: shared hit=264
 Planning:
   Buffers: shared hit=126
-Planning Time: 0.284 ms
-Execution Time: 2.685 ms
+Planning Time: 0.318 ms
+Execution Time: 2.712 ms

@@ -1,75 +1,75 @@
 === R05 run 1 ===
-Sort  (cost=595.61..595.61 rows=1 width=45) (actual time=0.313..0.313 rows=3.00 loops=1)
+Sort  (cost=499.25..499.26 rows=1 width=45) (actual time=0.639..0.640 rows=3.00 loops=1)
   Sort Key: a.slot_start
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=162 dirtied=5
-  ->  Nested Loop  (cost=6.10..595.60 rows=1 width=45) (actual time=0.274..0.302 rows=3.00 loops=1)
+  ->  Nested Loop  (cost=5.84..499.24 rows=1 width=45) (actual time=0.584..0.628 rows=3.00 loops=1)
         Buffers: shared hit=159 dirtied=5
-        ->  Bitmap Heap Scan on appointments a  (cost=5.81..587.29 rows=1 width=37) (actual time=0.268..0.284 rows=3.00 loops=1)
+        ->  Bitmap Heap Scan on appointments a  (cost=5.55..490.94 rows=1 width=37) (actual time=0.568..0.592 rows=3.00 loops=1)
               Recheck Cond: (doctor_id = 16)
               Filter: (date(slot_start) = '2026-06-30'::date)
               Rows Removed by Filter: 148
               Heap Blocks: exact=147
               Buffers: shared hit=150 dirtied=5
-              ->  Bitmap Index Scan on idx_appointments_doctor_slot  (cost=0.00..5.81 rows=185 width=0) (actual time=0.017..0.017 rows=151.00 loops=1)
+              ->  Bitmap Index Scan on idx_appointments_doctor_slot  (cost=0.00..5.54 rows=150 width=0) (actual time=0.013..0.014 rows=151.00 loops=1)
                     Index Cond: (doctor_id = 16)
                     Index Searches: 1
                     Buffers: shared hit=3
-        ->  Index Scan using patients_pkey on patients p  (cost=0.29..8.31 rows=1 width=16) (actual time=0.005..0.005 rows=1.00 loops=3)
+        ->  Index Scan using patients_pkey on patients p  (cost=0.29..8.31 rows=1 width=16) (actual time=0.011..0.011 rows=1.00 loops=3)
               Index Cond: (patient_id = a.patient_id)
               Index Searches: 3
               Buffers: shared hit=9
 Planning:
-  Buffers: shared hit=382 dirtied=1
-Planning Time: 0.758 ms
-Execution Time: 0.345 ms
+  Buffers: shared hit=424 dirtied=1
+Planning Time: 0.784 ms
+Execution Time: 0.672 ms
 === R05 run 2 ===
-Sort  (cost=595.61..595.61 rows=1 width=45) (actual time=0.296..0.296 rows=3.00 loops=1)
+Sort  (cost=499.25..499.26 rows=1 width=45) (actual time=0.234..0.234 rows=3.00 loops=1)
   Sort Key: a.slot_start
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=162
-  ->  Nested Loop  (cost=6.10..595.60 rows=1 width=45) (actual time=0.271..0.284 rows=3.00 loops=1)
+  ->  Nested Loop  (cost=5.84..499.24 rows=1 width=45) (actual time=0.214..0.224 rows=3.00 loops=1)
         Buffers: shared hit=159
-        ->  Bitmap Heap Scan on appointments a  (cost=5.81..587.29 rows=1 width=37) (actual time=0.264..0.267 rows=3.00 loops=1)
+        ->  Bitmap Heap Scan on appointments a  (cost=5.55..490.94 rows=1 width=37) (actual time=0.209..0.212 rows=3.00 loops=1)
               Recheck Cond: (doctor_id = 16)
               Filter: (date(slot_start) = '2026-06-30'::date)
               Rows Removed by Filter: 148
               Heap Blocks: exact=147
               Buffers: shared hit=150
-              ->  Bitmap Index Scan on idx_appointments_doctor_slot  (cost=0.00..5.81 rows=185 width=0) (actual time=0.015..0.015 rows=151.00 loops=1)
+              ->  Bitmap Index Scan on idx_appointments_doctor_slot  (cost=0.00..5.54 rows=150 width=0) (actual time=0.011..0.011 rows=151.00 loops=1)
                     Index Cond: (doctor_id = 16)
                     Index Searches: 1
                     Buffers: shared hit=3
-        ->  Index Scan using patients_pkey on patients p  (cost=0.29..8.31 rows=1 width=16) (actual time=0.005..0.005 rows=1.00 loops=3)
+        ->  Index Scan using patients_pkey on patients p  (cost=0.29..8.31 rows=1 width=16) (actual time=0.004..0.004 rows=1.00 loops=3)
               Index Cond: (patient_id = a.patient_id)
               Index Searches: 3
               Buffers: shared hit=9
 Planning:
-  Buffers: shared hit=382
-Planning Time: 0.689 ms
-Execution Time: 0.330 ms
+  Buffers: shared hit=424
+Planning Time: 0.688 ms
+Execution Time: 0.265 ms
 === R05 run 3 ===
-Sort  (cost=595.61..595.61 rows=1 width=45) (actual time=0.283..0.284 rows=3.00 loops=1)
+Sort  (cost=499.25..499.26 rows=1 width=45) (actual time=0.251..0.252 rows=3.00 loops=1)
   Sort Key: a.slot_start
   Sort Method: quicksort  Memory: 25kB
   Buffers: shared hit=162
-  ->  Nested Loop  (cost=6.10..595.60 rows=1 width=45) (actual time=0.261..0.273 rows=3.00 loops=1)
+  ->  Nested Loop  (cost=5.84..499.24 rows=1 width=45) (actual time=0.229..0.240 rows=3.00 loops=1)
         Buffers: shared hit=159
-        ->  Bitmap Heap Scan on appointments a  (cost=5.81..587.29 rows=1 width=37) (actual time=0.254..0.256 rows=3.00 loops=1)
+        ->  Bitmap Heap Scan on appointments a  (cost=5.55..490.94 rows=1 width=37) (actual time=0.224..0.226 rows=3.00 loops=1)
               Recheck Cond: (doctor_id = 16)
               Filter: (date(slot_start) = '2026-06-30'::date)
               Rows Removed by Filter: 148
               Heap Blocks: exact=147
               Buffers: shared hit=150
-              ->  Bitmap Index Scan on idx_appointments_doctor_slot  (cost=0.00..5.81 rows=185 width=0) (actual time=0.013..0.013 rows=151.00 loops=1)
+              ->  Bitmap Index Scan on idx_appointments_doctor_slot  (cost=0.00..5.54 rows=150 width=0) (actual time=0.012..0.013 rows=151.00 loops=1)
                     Index Cond: (doctor_id = 16)
                     Index Searches: 1
                     Buffers: shared hit=3
-        ->  Index Scan using patients_pkey on patients p  (cost=0.29..8.31 rows=1 width=16) (actual time=0.005..0.005 rows=1.00 loops=3)
+        ->  Index Scan using patients_pkey on patients p  (cost=0.29..8.31 rows=1 width=16) (actual time=0.004..0.004 rows=1.00 loops=3)
               Index Cond: (patient_id = a.patient_id)
               Index Searches: 3
               Buffers: shared hit=9
 Planning:
-  Buffers: shared hit=382
-Planning Time: 0.666 ms
-Execution Time: 0.318 ms
+  Buffers: shared hit=424
+Planning Time: 0.742 ms
+Execution Time: 0.285 ms
