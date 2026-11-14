@@ -18,18 +18,16 @@
 
 ---
 
-## Team details (fill in before you start)
+## Team details
 
 | Role | Name | Enrollment No. | GitHub Username |
-|------|------|----------------|-----------------|
-| Group Lead |Shubham Makkar|2501010445 | |shubhammakkar2006 |
-| Member 2 |Suryansh Pandey |2501010465 | |Suryanshpandey07 |
-| Member 3 |Vanisha Vashisth |2501010609 | |vanishavashisth-tech |
-| Member 4 |Tushant Sharma |2501010481 | |BEEN-AXIS |
+|---|---|---|---|
+| Group Lead | Shubham Makkar | 2501010445 | shubhammakkar2006 |
+| Member 2 | Suryansh Pandey | 2501010465 | Suryanshpandey07 |
+| Member 3 | Vanisha Vashisth | 2501010609 | vanishavashisth-tech |
+| Member 4 | Tushant Sharma | 2501010481 | BEEN-AXIS |
 
-**Team No.:** T0135 · **Section:** E· **Repository URL:** https://github.com/Suryanshpandey07/DE_Project_2026
-
----
+**Team No.:** T0135 · **Section:** E · **Repository URL:** https://github.com/Suryanshpandey07/DE_Project_2026
 
 ## How this project works
 
