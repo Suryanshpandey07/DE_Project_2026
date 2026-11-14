@@ -1,0 +1,57 @@
+=== W02 run 1 ===
+Update on appointments  (cost=11.25..19.27 rows=0 width=0) (actual time=0.158..0.158 rows=0.00 loops=1)
+  Buffers: shared hit=63 dirtied=7
+  InitPlan 1
+    ->  Limit  (cost=0.42..10.83 rows=1 width=16) (actual time=0.008..0.008 rows=1.00 loops=1)
+          Buffers: shared hit=4
+          ->  Index Scan Backward using idx_appointments_slot_covering on appointments appointments_1  (cost=0.42..21.23 rows=2 width=16) (actual time=0.008..0.008 rows=1.00 loops=1)
+                Index Cond: ((slot_start >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (slot_start < '2026-07-02 00:00:00+05:30'::timestamp with time zone))
+                Filter: ((status = 'BOOKED'::text) AND (consult_type = 'IN_CLINIC'::text))
+                Index Searches: 1
+                Buffers: shared hit=4
+  ->  Index Scan using appointments_pkey on appointments  (cost=0.42..8.44 rows=1 width=46) (actual time=0.020..0.021 rows=1.00 loops=1)
+        Index Cond: (appointment_id = (InitPlan 1).col1)
+        Index Searches: 1
+        Buffers: shared hit=10
+Planning:
+  Buffers: shared hit=252
+Planning Time: 0.422 ms
+Execution Time: 0.381 ms
+=== W02 run 2 ===
+Update on appointments  (cost=11.25..19.27 rows=0 width=0) (actual time=0.132..0.133 rows=0.00 loops=1)
+  Buffers: shared hit=64 dirtied=1
+  InitPlan 1
+    ->  Limit  (cost=0.42..10.83 rows=1 width=16) (actual time=0.012..0.012 rows=1.00 loops=1)
+          Buffers: shared hit=5
+          ->  Index Scan Backward using idx_appointments_slot_covering on appointments appointments_1  (cost=0.42..21.23 rows=2 width=16) (actual time=0.011..0.011 rows=1.00 loops=1)
+                Index Cond: ((slot_start >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (slot_start < '2026-07-02 00:00:00+05:30'::timestamp with time zone))
+                Filter: ((status = 'BOOKED'::text) AND (consult_type = 'IN_CLINIC'::text))
+                Index Searches: 1
+                Buffers: shared hit=5
+  ->  Index Scan using appointments_pkey on appointments  (cost=0.42..8.44 rows=1 width=46) (actual time=0.024..0.025 rows=1.00 loops=1)
+        Index Cond: (appointment_id = (InitPlan 1).col1)
+        Index Searches: 1
+        Buffers: shared hit=11
+Planning:
+  Buffers: shared hit=252
+Planning Time: 0.421 ms
+Execution Time: 0.180 ms
+=== W02 run 3 ===
+Update on appointments  (cost=11.25..19.27 rows=0 width=0) (actual time=0.138..0.138 rows=0.00 loops=1)
+  Buffers: shared hit=65 dirtied=1
+  InitPlan 1
+    ->  Limit  (cost=0.42..10.83 rows=1 width=16) (actual time=0.012..0.012 rows=1.00 loops=1)
+          Buffers: shared hit=6
+          ->  Index Scan Backward using idx_appointments_slot_covering on appointments appointments_1  (cost=0.42..21.23 rows=2 width=16) (actual time=0.012..0.012 rows=1.00 loops=1)
+                Index Cond: ((slot_start >= '2026-07-01 00:00:00+05:30'::timestamp with time zone) AND (slot_start < '2026-07-02 00:00:00+05:30'::timestamp with time zone))
+                Filter: ((status = 'BOOKED'::text) AND (consult_type = 'IN_CLINIC'::text))
+                Index Searches: 1
+                Buffers: shared hit=6
+  ->  Index Scan using appointments_pkey on appointments  (cost=0.42..8.44 rows=1 width=46) (actual time=0.024..0.026 rows=1.00 loops=1)
+        Index Cond: (appointment_id = (InitPlan 1).col1)
+        Index Searches: 1
+        Buffers: shared hit=12
+Planning:
+  Buffers: shared hit=252
+Planning Time: 0.440 ms
+Execution Time: 0.184 ms

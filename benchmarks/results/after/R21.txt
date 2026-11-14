@@ -1,0 +1,36 @@
+=== R21 run 1 ===
+Limit  (cost=0.42..43.44 rows=100 width=29) (actual time=0.288..0.389 rows=100.00 loops=1)
+  Buffers: shared hit=2262
+  ->  Index Scan using idx_appointments_slot_covering on appointments  (cost=0.42..9985.29 rows=23208 width=29) (actual time=0.287..0.386 rows=100.00 loops=1)
+        Filter: ((status = 'COMPLETED'::text) AND (payment_status = 'PENDING'::text))
+        Rows Removed by Filter: 2362
+        Index Searches: 1
+        Buffers: shared hit=2262
+Planning:
+  Buffers: shared hit=230
+Planning Time: 0.367 ms
+Execution Time: 0.403 ms
+=== R21 run 2 ===
+Limit  (cost=0.42..43.44 rows=100 width=29) (actual time=0.275..0.375 rows=100.00 loops=1)
+  Buffers: shared hit=2262
+  ->  Index Scan using idx_appointments_slot_covering on appointments  (cost=0.42..9985.29 rows=23208 width=29) (actual time=0.274..0.371 rows=100.00 loops=1)
+        Filter: ((status = 'COMPLETED'::text) AND (payment_status = 'PENDING'::text))
+        Rows Removed by Filter: 2362
+        Index Searches: 1
+        Buffers: shared hit=2262
+Planning:
+  Buffers: shared hit=230
+Planning Time: 0.347 ms
+Execution Time: 0.387 ms
+=== R21 run 3 ===
+Limit  (cost=0.42..43.44 rows=100 width=29) (actual time=0.270..0.364 rows=100.00 loops=1)
+  Buffers: shared hit=2262
+  ->  Index Scan using idx_appointments_slot_covering on appointments  (cost=0.42..9985.29 rows=23208 width=29) (actual time=0.269..0.360 rows=100.00 loops=1)
+        Filter: ((status = 'COMPLETED'::text) AND (payment_status = 'PENDING'::text))
+        Rows Removed by Filter: 2362
+        Index Searches: 1
+        Buffers: shared hit=2262
+Planning:
+  Buffers: shared hit=230
+Planning Time: 0.338 ms
+Execution Time: 0.377 ms

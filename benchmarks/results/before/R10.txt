@@ -1,0 +1,120 @@
+=== R10 run 1 ===
+Gather Merge  (cost=8844.28..8924.06 rows=700 width=76) (actual time=16.831..17.927 rows=726.00 loops=1)
+  Workers Planned: 1
+  Workers Launched: 1
+  Buffers: shared hit=38806
+  ->  Sort  (cost=7844.27..7845.30 rows=412 width=76) (actual time=15.762..15.771 rows=363.00 loops=2)
+        Sort Key: p.issued_at DESC
+        Sort Method: quicksort  Memory: 62kB
+        Buffers: shared hit=38806
+        Worker 0:  Sort Method: quicksort  Memory: 60kB
+        ->  Nested Loop  (cost=1077.46..7826.37 rows=412 width=76) (actual time=2.052..15.711 rows=363.00 loops=2)
+              Buffers: shared hit=38798
+              ->  Nested Loop  (cost=1077.04..6267.04 rows=2488 width=67) (actual time=1.999..10.652 rows=2159.00 loops=2)
+                    Buffers: shared hit=21455
+                    ->  Hash Join  (cost=1076.75..4910.74 rows=3838 width=59) (actual time=1.994..7.920 rows=3296.00 loops=2)
+                          Hash Cond: (a.patient_id = pt.patient_id)
+                          Buffers: shared hit=3952
+                          ->  Parallel Seq Scan on appointments a  (cost=0.00..3602.35 rows=88235 width=12) (actual time=0.003..2.435 rows=75000.00 loops=2)
+                                Buffers: shared hit=2720
+                          ->  Hash  (cost=1055.00..1055.00 rows=1740 width=51) (actual time=1.983..1.983 rows=1737.00 loops=2)
+                                Buckets: 2048  Batches: 1  Memory Usage: 168kB
+                                Buffers: shared hit=1232
+                                ->  Seq Scan on patients pt  (cost=0.00..1055.00 rows=1740 width=51) (actual time=0.044..1.863 rows=1737.00 loops=2)
+                                      Filter: (allergies @> '{Penicillin}'::text[])
+                                      Rows Removed by Filter: 38263
+                                      Buffers: shared hit=1232
+                    ->  Index Scan using idx_prescriptions_appointment on prescriptions p  (cost=0.29..0.34 rows=1 width=24) (actual time=0.001..0.001 rows=0.66 loops=6592)
+                          Index Cond: (appointment_id = a.appointment_id)
+                          Index Searches: 6592
+                          Buffers: shared hit=17503
+              ->  Index Scan using prescription_items_pkey on prescription_items i  (cost=0.42..0.62 rows=1 width=25) (actual time=0.002..0.002 rows=0.17 loops=4318)
+                    Index Cond: (prescription_id = p.prescription_id)
+                    Filter: (medicine_name ~~* '%amoxicillin%'::text)
+                    Rows Removed by Filter: 2
+                    Index Searches: 4318
+                    Buffers: shared hit=17343
+Planning:
+  Buffers: shared hit=668 dirtied=1
+Planning Time: 0.875 ms
+Execution Time: 17.968 ms
+=== R10 run 2 ===
+Gather Merge  (cost=8844.28..8924.06 rows=700 width=76) (actual time=16.667..17.598 rows=726.00 loops=1)
+  Workers Planned: 1
+  Workers Launched: 1
+  Buffers: shared hit=38806
+  ->  Sort  (cost=7844.27..7845.30 rows=412 width=76) (actual time=15.571..15.580 rows=363.00 loops=2)
+        Sort Key: p.issued_at DESC
+        Sort Method: quicksort  Memory: 64kB
+        Buffers: shared hit=38806
+        Worker 0:  Sort Method: quicksort  Memory: 58kB
+        ->  Nested Loop  (cost=1077.46..7826.37 rows=412 width=76) (actual time=2.075..15.522 rows=363.00 loops=2)
+              Buffers: shared hit=38798
+              ->  Nested Loop  (cost=1077.04..6267.04 rows=2488 width=67) (actual time=2.023..10.551 rows=2159.00 loops=2)
+                    Buffers: shared hit=21455
+                    ->  Hash Join  (cost=1076.75..4910.74 rows=3838 width=59) (actual time=2.019..7.854 rows=3296.00 loops=2)
+                          Hash Cond: (a.patient_id = pt.patient_id)
+                          Buffers: shared hit=3952
+                          ->  Parallel Seq Scan on appointments a  (cost=0.00..3602.35 rows=88235 width=12) (actual time=0.003..2.414 rows=75000.00 loops=2)
+                                Buffers: shared hit=2720
+                          ->  Hash  (cost=1055.00..1055.00 rows=1740 width=51) (actual time=2.008..2.008 rows=1737.00 loops=2)
+                                Buckets: 2048  Batches: 1  Memory Usage: 168kB
+                                Buffers: shared hit=1232
+                                ->  Seq Scan on patients pt  (cost=0.00..1055.00 rows=1740 width=51) (actual time=0.042..1.903 rows=1737.00 loops=2)
+                                      Filter: (allergies @> '{Penicillin}'::text[])
+                                      Rows Removed by Filter: 38263
+                                      Buffers: shared hit=1232
+                    ->  Index Scan using idx_prescriptions_appointment on prescriptions p  (cost=0.29..0.34 rows=1 width=24) (actual time=0.001..0.001 rows=0.66 loops=6592)
+                          Index Cond: (appointment_id = a.appointment_id)
+                          Index Searches: 6592
+                          Buffers: shared hit=17503
+              ->  Index Scan using prescription_items_pkey on prescription_items i  (cost=0.42..0.62 rows=1 width=25) (actual time=0.002..0.002 rows=0.17 loops=4318)
+                    Index Cond: (prescription_id = p.prescription_id)
+                    Filter: (medicine_name ~~* '%amoxicillin%'::text)
+                    Rows Removed by Filter: 2
+                    Index Searches: 4318
+                    Buffers: shared hit=17343
+Planning:
+  Buffers: shared hit=667
+Planning Time: 0.895 ms
+Execution Time: 17.655 ms
+=== R10 run 3 ===
+Gather Merge  (cost=8844.28..8924.06 rows=700 width=76) (actual time=16.750..17.897 rows=726.00 loops=1)
+  Workers Planned: 1
+  Workers Launched: 1
+  Buffers: shared hit=38806
+  ->  Sort  (cost=7844.27..7845.30 rows=412 width=76) (actual time=15.641..15.651 rows=363.00 loops=2)
+        Sort Key: p.issued_at DESC
+        Sort Method: quicksort  Memory: 64kB
+        Buffers: shared hit=38806
+        Worker 0:  Sort Method: quicksort  Memory: 58kB
+        ->  Nested Loop  (cost=1077.46..7826.37 rows=412 width=76) (actual time=2.015..15.590 rows=363.00 loops=2)
+              Buffers: shared hit=38798
+              ->  Nested Loop  (cost=1077.04..6267.04 rows=2488 width=67) (actual time=1.959..10.625 rows=2159.00 loops=2)
+                    Buffers: shared hit=21455
+                    ->  Hash Join  (cost=1076.75..4910.74 rows=3838 width=59) (actual time=1.955..7.895 rows=3296.00 loops=2)
+                          Hash Cond: (a.patient_id = pt.patient_id)
+                          Buffers: shared hit=3952
+                          ->  Parallel Seq Scan on appointments a  (cost=0.00..3602.35 rows=88235 width=12) (actual time=0.003..2.448 rows=75000.00 loops=2)
+                                Buffers: shared hit=2720
+                          ->  Hash  (cost=1055.00..1055.00 rows=1740 width=51) (actual time=1.944..1.944 rows=1737.00 loops=2)
+                                Buckets: 2048  Batches: 1  Memory Usage: 168kB
+                                Buffers: shared hit=1232
+                                ->  Seq Scan on patients pt  (cost=0.00..1055.00 rows=1740 width=51) (actual time=0.045..1.836 rows=1737.00 loops=2)
+                                      Filter: (allergies @> '{Penicillin}'::text[])
+                                      Rows Removed by Filter: 38263
+                                      Buffers: shared hit=1232
+                    ->  Index Scan using idx_prescriptions_appointment on prescriptions p  (cost=0.29..0.34 rows=1 width=24) (actual time=0.001..0.001 rows=0.66 loops=6592)
+                          Index Cond: (appointment_id = a.appointment_id)
+                          Index Searches: 6592
+                          Buffers: shared hit=17503
+              ->  Index Scan using prescription_items_pkey on prescription_items i  (cost=0.42..0.62 rows=1 width=25) (actual time=0.002..0.002 rows=0.17 loops=4318)
+                    Index Cond: (prescription_id = p.prescription_id)
+                    Filter: (medicine_name ~~* '%amoxicillin%'::text)
+                    Rows Removed by Filter: 2
+                    Index Searches: 4318
+                    Buffers: shared hit=17343
+Planning:
+  Buffers: shared hit=667
+Planning Time: 0.871 ms
+Execution Time: 17.953 ms

@@ -1,0 +1,51 @@
+=== W04 run 1 ===
+Update on appointments  (cost=22.22..2601.02 rows=0 width=0) (actual time=6.123..6.124 rows=0.00 loops=1)
+  Buffers: shared hit=6595 dirtied=719 written=2
+  ->  Bitmap Heap Scan on appointments  (cost=22.22..2601.02 rows=338 width=38) (actual time=0.045..0.220 rows=329.00 loops=1)
+        Recheck Cond: (status = ANY ('{BOOKED,CHECKED_IN}'::text[]))
+        Filter: ((consult_ended_at IS NULL) AND (slot_end < '2026-07-02 00:00:00+05:30'::timestamp with time zone))
+        Rows Removed by Filter: 1494
+        Heap Blocks: exact=75
+        Buffers: shared hit=81
+        ->  Bitmap Index Scan on idx_appointments_status  (cost=0.00..22.13 rows=1805 width=0) (actual time=0.033..0.033 rows=1831.00 loops=1)
+              Index Cond: (status = ANY ('{BOOKED,CHECKED_IN}'::text[]))
+              Index Searches: 2
+              Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=201
+Planning Time: 0.322 ms
+Execution Time: 6.167 ms
+=== W04 run 2 ===
+Update on appointments  (cost=22.22..2601.02 rows=0 width=0) (actual time=3.590..3.590 rows=0.00 loops=1)
+  Buffers: shared hit=6730 dirtied=11 written=3
+  ->  Bitmap Heap Scan on appointments  (cost=22.22..2601.02 rows=338 width=38) (actual time=0.047..0.241 rows=329.00 loops=1)
+        Recheck Cond: (status = ANY ('{BOOKED,CHECKED_IN}'::text[]))
+        Filter: ((consult_ended_at IS NULL) AND (slot_end < '2026-07-02 00:00:00+05:30'::timestamp with time zone))
+        Rows Removed by Filter: 1494
+        Heap Blocks: exact=75
+        Buffers: shared hit=81
+        ->  Bitmap Index Scan on idx_appointments_status  (cost=0.00..22.13 rows=1805 width=0) (actual time=0.033..0.033 rows=1831.00 loops=1)
+              Index Cond: (status = ANY ('{BOOKED,CHECKED_IN}'::text[]))
+              Index Searches: 2
+              Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=201
+Planning Time: 0.317 ms
+Execution Time: 3.633 ms
+=== W04 run 3 ===
+Update on appointments  (cost=22.22..2601.02 rows=0 width=0) (actual time=3.223..3.223 rows=0.00 loops=1)
+  Buffers: shared hit=6762 dirtied=5
+  ->  Bitmap Heap Scan on appointments  (cost=22.22..2601.02 rows=338 width=38) (actual time=0.047..0.234 rows=329.00 loops=1)
+        Recheck Cond: (status = ANY ('{BOOKED,CHECKED_IN}'::text[]))
+        Filter: ((consult_ended_at IS NULL) AND (slot_end < '2026-07-02 00:00:00+05:30'::timestamp with time zone))
+        Rows Removed by Filter: 1494
+        Heap Blocks: exact=75
+        Buffers: shared hit=81
+        ->  Bitmap Index Scan on idx_appointments_status  (cost=0.00..22.13 rows=1805 width=0) (actual time=0.033..0.033 rows=1831.00 loops=1)
+              Index Cond: (status = ANY ('{BOOKED,CHECKED_IN}'::text[]))
+              Index Searches: 2
+              Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=201
+Planning Time: 0.313 ms
+Execution Time: 3.265 ms
