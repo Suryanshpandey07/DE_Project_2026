@@ -1,0 +1,87 @@
+=== R16 run 1 ===
+Limit  (cost=738.07..738.12 rows=20 width=70) (actual time=2.573..2.575 rows=20.00 loops=1)
+  Buffers: shared hit=7725
+  ->  Sort  (cost=738.07..741.82 rows=1500 width=70) (actual time=2.573..2.573 rows=20.00 loops=1)
+        Sort Key: (sum(a.fee)) DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=7725
+        ->  HashAggregate  (cost=679.40..698.15 rows=1500 width=70) (actual time=2.390..2.476 rows=1129.00 loops=1)
+              Group Key: c.clinic_id
+              Batches: 1  Memory Usage: 689kB
+              Buffers: shared hit=7722
+              ->  Hash Join  (cost=55.17..634.46 rows=5993 width=35) (actual time=0.154..1.917 rows=4948.00 loops=1)
+                    Hash Cond: (a.clinic_id = c.clinic_id)
+                    Buffers: shared hit=7722
+                    ->  Index Scan using idx_appointments_slot_covering on appointments a  (cost=0.42..563.94 rows=5993 width=9) (actual time=0.006..1.362 rows=6362.00 loops=1)
+                          Index Cond: ((slot_start >= '2026-06-01 00:00:00+05:30'::timestamp with time zone) AND (slot_start < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+                          Filter: (payment_status = 'PAID'::text)
+                          Rows Removed by Filter: 2038
+                          Index Searches: 1
+                          Buffers: shared hit=7701
+                    ->  Hash  (cost=36.00..36.00 rows=1500 width=30) (actual time=0.146..0.146 rows=1500.00 loops=1)
+                          Buckets: 2048  Batches: 1  Memory Usage: 108kB
+                          Buffers: shared hit=21
+                          ->  Seq Scan on clinics c  (cost=0.00..36.00 rows=1500 width=30) (actual time=0.003..0.069 rows=1500.00 loops=1)
+                                Buffers: shared hit=21
+Planning:
+  Buffers: shared hit=363
+Planning Time: 0.597 ms
+Execution Time: 2.611 ms
+=== R16 run 2 ===
+Limit  (cost=738.07..738.12 rows=20 width=70) (actual time=2.461..2.463 rows=20.00 loops=1)
+  Buffers: shared hit=7725
+  ->  Sort  (cost=738.07..741.82 rows=1500 width=70) (actual time=2.461..2.461 rows=20.00 loops=1)
+        Sort Key: (sum(a.fee)) DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=7725
+        ->  HashAggregate  (cost=679.40..698.15 rows=1500 width=70) (actual time=2.276..2.361 rows=1129.00 loops=1)
+              Group Key: c.clinic_id
+              Batches: 1  Memory Usage: 689kB
+              Buffers: shared hit=7722
+              ->  Hash Join  (cost=55.17..634.46 rows=5993 width=35) (actual time=0.142..1.838 rows=4948.00 loops=1)
+                    Hash Cond: (a.clinic_id = c.clinic_id)
+                    Buffers: shared hit=7722
+                    ->  Index Scan using idx_appointments_slot_covering on appointments a  (cost=0.42..563.94 rows=5993 width=9) (actual time=0.005..1.320 rows=6362.00 loops=1)
+                          Index Cond: ((slot_start >= '2026-06-01 00:00:00+05:30'::timestamp with time zone) AND (slot_start < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+                          Filter: (payment_status = 'PAID'::text)
+                          Rows Removed by Filter: 2038
+                          Index Searches: 1
+                          Buffers: shared hit=7701
+                    ->  Hash  (cost=36.00..36.00 rows=1500 width=30) (actual time=0.134..0.134 rows=1500.00 loops=1)
+                          Buckets: 2048  Batches: 1  Memory Usage: 108kB
+                          Buffers: shared hit=21
+                          ->  Seq Scan on clinics c  (cost=0.00..36.00 rows=1500 width=30) (actual time=0.003..0.062 rows=1500.00 loops=1)
+                                Buffers: shared hit=21
+Planning:
+  Buffers: shared hit=363
+Planning Time: 0.537 ms
+Execution Time: 2.495 ms
+=== R16 run 3 ===
+Limit  (cost=738.07..738.12 rows=20 width=70) (actual time=2.492..2.494 rows=20.00 loops=1)
+  Buffers: shared hit=7725
+  ->  Sort  (cost=738.07..741.82 rows=1500 width=70) (actual time=2.492..2.493 rows=20.00 loops=1)
+        Sort Key: (sum(a.fee)) DESC
+        Sort Method: top-N heapsort  Memory: 27kB
+        Buffers: shared hit=7725
+        ->  HashAggregate  (cost=679.40..698.15 rows=1500 width=70) (actual time=2.311..2.395 rows=1129.00 loops=1)
+              Group Key: c.clinic_id
+              Batches: 1  Memory Usage: 689kB
+              Buffers: shared hit=7722
+              ->  Hash Join  (cost=55.17..634.46 rows=5993 width=35) (actual time=0.154..1.859 rows=4948.00 loops=1)
+                    Hash Cond: (a.clinic_id = c.clinic_id)
+                    Buffers: shared hit=7722
+                    ->  Index Scan using idx_appointments_slot_covering on appointments a  (cost=0.42..563.94 rows=5993 width=9) (actual time=0.006..1.323 rows=6362.00 loops=1)
+                          Index Cond: ((slot_start >= '2026-06-01 00:00:00+05:30'::timestamp with time zone) AND (slot_start < '2026-07-01 00:00:00+05:30'::timestamp with time zone))
+                          Filter: (payment_status = 'PAID'::text)
+                          Rows Removed by Filter: 2038
+                          Index Searches: 1
+                          Buffers: shared hit=7701
+                    ->  Hash  (cost=36.00..36.00 rows=1500 width=30) (actual time=0.145..0.145 rows=1500.00 loops=1)
+                          Buckets: 2048  Batches: 1  Memory Usage: 108kB
+                          Buffers: shared hit=21
+                          ->  Seq Scan on clinics c  (cost=0.00..36.00 rows=1500 width=30) (actual time=0.003..0.068 rows=1500.00 loops=1)
+                                Buffers: shared hit=21
+Planning:
+  Buffers: shared hit=363
+Planning Time: 0.615 ms
+Execution Time: 2.528 ms

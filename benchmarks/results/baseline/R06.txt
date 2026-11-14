@@ -1,0 +1,27 @@
+=== R06 run 1 ===
+Seq Scan on patients  (cost=0.00..1055.00 rows=1 width=23) (actual time=0.012..2.169 rows=1.00 loops=1)
+  Filter: (phone = '9400000090'::text)
+  Rows Removed by Filter: 39999
+  Buffers: shared hit=555
+Planning:
+  Buffers: shared hit=102
+Planning Time: 0.243 ms
+Execution Time: 2.190 ms
+=== R06 run 2 ===
+Seq Scan on patients  (cost=0.00..1055.00 rows=1 width=23) (actual time=0.010..1.855 rows=1.00 loops=1)
+  Filter: (phone = '9400000090'::text)
+  Rows Removed by Filter: 39999
+  Buffers: shared hit=555
+Planning:
+  Buffers: shared hit=102
+Planning Time: 0.249 ms
+Execution Time: 1.877 ms
+=== R06 run 3 ===
+Seq Scan on patients  (cost=0.00..1055.00 rows=1 width=23) (actual time=0.008..1.789 rows=1.00 loops=1)
+  Filter: (phone = '9400000090'::text)
+  Rows Removed by Filter: 39999
+  Buffers: shared hit=555
+Planning:
+  Buffers: shared hit=102
+Planning Time: 0.232 ms
+Execution Time: 1.808 ms
