@@ -1,0 +1,66 @@
+=== R11 run 1 ===
+Nested Loop Anti Join  (cost=1.26..3557.31 rows=329 width=20) (actual time=0.081..2.980 rows=430 loops=1)
+  Buffers: shared hit=3069
+  ->  Nested Loop  (cost=0.84..3297.97 rows=493 width=28) (actual time=0.067..1.214 rows=430 loops=1)
+        Buffers: shared hit=1726
+        ->  Index Only Scan using idx_prescriptions_follow_up_patient on prescriptions p  (cost=0.42..26.28 rows=493 width=20) (actual time=0.038..0.090 rows=430 loops=1)
+              Index Cond: ((follow_up_date >= '2026-07-01'::date) AND (follow_up_date <= '2026-07-07'::date))
+              Heap Fetches: 0
+              Buffers: shared hit=6
+        ->  Index Scan using appointments_pkey on appointments a  (cost=0.42..6.64 rows=1 width=24) (actual time=0.002..0.002 rows=1 loops=430)
+              Index Cond: (appointment_id = p.appointment_id)
+              Buffers: shared hit=1720
+  ->  Index Only Scan using idx_appointments_patient_status_slot on appointments f  (cost=0.42..0.52 rows=1 width=16) (actual time=0.004..0.004 rows=0 loops=430)
+        Index Cond: ((patient_id = a.patient_id) AND (slot_start > a.slot_start))
+        Filter: ((status <> 'CANCELLED'::text) AND (doctor_id = a.doctor_id))
+        Rows Removed by Filter: 0
+        Heap Fetches: 35
+        Buffers: shared hit=1343
+Planning:
+  Buffers: shared hit=966
+Planning Time: 2.283 ms
+Execution Time: 3.055 ms
+=== R11 run 2 ===
+Nested Loop Anti Join  (cost=1.26..3557.31 rows=329 width=20) (actual time=0.076..2.928 rows=430 loops=1)
+  Buffers: shared hit=3069
+  ->  Nested Loop  (cost=0.84..3297.97 rows=493 width=28) (actual time=0.064..1.240 rows=430 loops=1)
+        Buffers: shared hit=1726
+        ->  Index Only Scan using idx_prescriptions_follow_up_patient on prescriptions p  (cost=0.42..26.28 rows=493 width=20) (actual time=0.037..0.093 rows=430 loops=1)
+              Index Cond: ((follow_up_date >= '2026-07-01'::date) AND (follow_up_date <= '2026-07-07'::date))
+              Heap Fetches: 0
+              Buffers: shared hit=6
+        ->  Index Scan using appointments_pkey on appointments a  (cost=0.42..6.64 rows=1 width=24) (actual time=0.002..0.002 rows=1 loops=430)
+              Index Cond: (appointment_id = p.appointment_id)
+              Buffers: shared hit=1720
+  ->  Index Only Scan using idx_appointments_patient_status_slot on appointments f  (cost=0.42..0.52 rows=1 width=16) (actual time=0.004..0.004 rows=0 loops=430)
+        Index Cond: ((patient_id = a.patient_id) AND (slot_start > a.slot_start))
+        Filter: ((status <> 'CANCELLED'::text) AND (doctor_id = a.doctor_id))
+        Rows Removed by Filter: 0
+        Heap Fetches: 35
+        Buffers: shared hit=1343
+Planning:
+  Buffers: shared hit=966
+Planning Time: 2.269 ms
+Execution Time: 3.005 ms
+=== R11 run 3 ===
+Nested Loop Anti Join  (cost=1.26..3557.31 rows=329 width=20) (actual time=0.105..8.131 rows=430 loops=1)
+  Buffers: shared hit=3069
+  ->  Nested Loop  (cost=0.84..3297.97 rows=493 width=28) (actual time=0.087..2.704 rows=430 loops=1)
+        Buffers: shared hit=1726
+        ->  Index Only Scan using idx_prescriptions_follow_up_patient on prescriptions p  (cost=0.42..26.28 rows=493 width=20) (actual time=0.048..0.147 rows=430 loops=1)
+              Index Cond: ((follow_up_date >= '2026-07-01'::date) AND (follow_up_date <= '2026-07-07'::date))
+              Heap Fetches: 0
+              Buffers: shared hit=6
+        ->  Index Scan using appointments_pkey on appointments a  (cost=0.42..6.64 rows=1 width=24) (actual time=0.005..0.005 rows=1 loops=430)
+              Index Cond: (appointment_id = p.appointment_id)
+              Buffers: shared hit=1720
+  ->  Index Only Scan using idx_appointments_patient_status_slot on appointments f  (cost=0.42..0.52 rows=1 width=16) (actual time=0.012..0.012 rows=0 loops=430)
+        Index Cond: ((patient_id = a.patient_id) AND (slot_start > a.slot_start))
+        Filter: ((status <> 'CANCELLED'::text) AND (doctor_id = a.doctor_id))
+        Rows Removed by Filter: 0
+        Heap Fetches: 35
+        Buffers: shared hit=1343
+Planning:
+  Buffers: shared hit=966
+Planning Time: 3.662 ms
+Execution Time: 8.245 ms

@@ -1,0 +1,31 @@
+query_id,type,avg_ms,median_ms,min_ms,max_ms,scan_nodes
+R01,READ,3.396,2.644,2.637,4.908,Seq Scan on specializations | Index Only Scan using idx_doctor_specializations_spec on doctor_specializations | Index Scan using doctors_pkey on doctors | Index Scan using idx_doctor_schedules_doctor on doctor_schedules | Bitmap Heap Scan on clinics | Bitmap Index Scan on idx_clinics_city
+R02,READ,0.582,0.581,0.577,0.588,Index Scan using idx_doctor_schedules_doctor on doctor_schedules | Seq Scan on clinics
+R03,READ,0.230,0.203,0.203,0.285,Index Scan using idx_doctor_schedules_doctor on doctor_schedules | Index Only Scan using idx_appointments_active_doctor_slot on appointments
+R04,READ,0.186,0.190,0.151,0.216,Index Only Scan using idx_appointments_patient_status_slot on appointments | Index Scan using doctors_pkey on doctors | Index Scan using clinics_pkey on clinics
+R05,READ,0.147,0.133,0.132,0.175,Index Scan using idx_appointments_doctor_slot on appointments | Index Scan using patients_pkey on patients
+R06,READ,0.081,0.077,0.076,0.090,Index Scan using idx_patients_phone on patients
+R07,READ,0.151,0.158,0.131,0.164,Index Scan using idx_prescriptions_appointment on prescriptions | Index Scan using prescription_items_pkey on prescription_items
+R08,READ,89.969,90.181,88.793,90.932,Seq Scan on appointments | Seq Scan on doctor_specializations | Seq Scan on specializations
+R09,READ,6.979,5.452,5.313,10.171,Index Only Scan using idx_appointments_completed_date_covering on appointments
+R10,READ,64.452,64.827,63.115,65.415,Seq Scan on appointments | Bitmap Heap Scan on patients | Bitmap Index Scan on idx_patients_allergies_gin | Index Scan using idx_prescriptions_appointment on prescriptions | Index Scan using prescription_items_pkey on prescription_items
+R11,READ,4.768,3.055,3.005,8.245,Index Only Scan using idx_prescriptions_follow_up_patient on prescriptions | Index Scan using appointments_pkey on appointments | Index Only Scan using idx_appointments_patient_status_slot on appointments
+R12,READ,26.398,25.470,24.893,28.832,Index Only Scan using idx_appointments_2026_type on appointments
+R13,READ,11.080,8.729,8.260,16.251,Seq Scan on clinics | Seq Scan on doctor_schedules
+R14,READ,64.195,62.520,57.327,72.739,Seq Scan on appointments | Seq Scan on doctor_reviews
+R15,READ,86.890,85.298,84.989,90.382,Seq Scan on appointments | Seq Scan on prescription_items | Index Only Scan using idx_prescriptions_issued_at on prescriptions | Seq Scan on doctor_specializations | Seq Scan on specializations
+R16,READ,7.857,7.861,7.766,7.943,Index Scan using idx_appointments_slot_covering on appointments | Seq Scan on clinics
+R17,READ,94.229,87.415,83.595,111.676,Index Only Scan using idx_appointments_completed_slot_patient on appointments | Seq Scan on patients
+R18,READ,10.414,10.362,10.259,10.622,Seq Scan on doctor_schedules | Bitmap Heap Scan on doctors | Bitmap Index Scan on idx_doctors_languages_gin | Bitmap Heap Scan on clinics | Bitmap Index Scan on idx_clinics_city
+R19,READ,18.825,17.219,16.017,23.240,Seq Scan on doctors | Seq Scan on doctor_schedules | Bitmap Heap Scan on clinics | Bitmap Index Scan on idx_clinics_city | Index Only Scan using idx_appointments_doctor_status_slot on appointments
+R20,READ,3.727,3.318,3.311,4.552,Index Only Scan using idx_appointments_completed_date_covering on appointments
+R21,READ,0.707,0.415,0.242,1.463,Index Only Scan using idx_appointments_pending_in_clinic on appointments
+R22,READ,20.816,18.525,17.987,25.937,Index Only Scan using idx_appointments_slot_covering on appointments
+R23,READ,0.065,0.065,0.065,0.066,Index Scan using idx_doctors_registration_unique on doctors
+R24,READ,116.331,109.132,107.382,132.479,Seq Scan on appointments
+R25,READ,82.293,78.161,68.881,99.838,Index Only Scan using idx_appointments_completed_slot_patient on appointments | Seq Scan on doctor_specializations
+W01,WRITE,1.882,1.868,1.791,1.987,Index Scan using idx_doctor_schedules_doctor on doctor_schedules | Index Scan using doctors_pkey on doctors
+W02,WRITE,0.687,0.660,0.586,0.815,Index Only Scan using idx_appointments_booked_slot on appointments | Index Scan using appointments_pkey on appointments
+W03,WRITE,0.374,0.330,0.304,0.489,Index Scan using idx_prescriptions_appointment on prescriptions
+W04,WRITE,30.687,23.302,22.955,45.803,Index Scan using idx_appointments_nightly_job on appointments
+W05,WRITE,0.965,0.950,0.888,1.056,Index Scan using idx_appointments_booked_slot on appointments

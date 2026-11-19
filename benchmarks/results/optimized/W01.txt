@@ -1,0 +1,60 @@
+=== W01 run 1 ===
+Insert on appointments  (cost=0.57..18.40 rows=0 width=0) (actual time=1.130..1.131 rows=0 loops=1)
+  Buffers: shared hit=462 read=1 dirtied=3 written=1
+  ->  Nested Loop  (cost=0.57..18.40 rows=1 width=201) (actual time=0.048..0.052 rows=1 loops=1)
+        Buffers: shared hit=6
+        ->  Index Scan using idx_doctor_schedules_doctor on doctor_schedules sc  (cost=0.29..10.08 rows=1 width=12) (actual time=0.025..0.026 rows=1 loops=1)
+              Index Cond: ((doctor_id = 217) AND (weekday = 5))
+              Filter: (start_time = '10:00:00'::time without time zone)
+              Rows Removed by Filter: 1
+              Buffers: shared hit=3
+        ->  Index Scan using doctors_pkey on doctors d  (cost=0.28..8.30 rows=1 width=9) (actual time=0.020..0.021 rows=1 loops=1)
+              Index Cond: (doctor_id = 217)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=184
+Planning Time: 0.673 ms
+Trigger for constraint appointments_patient_id_fkey: time=0.421 calls=1
+Trigger for constraint appointments_doctor_id_fkey: time=0.158 calls=1
+Trigger for constraint appointments_clinic_id_fkey: time=0.207 calls=1
+Execution Time: 1.987 ms
+=== W01 run 2 ===
+Insert on appointments  (cost=0.57..18.40 rows=0 width=0) (actual time=1.009..1.010 rows=0 loops=1)
+  Buffers: shared hit=465
+  ->  Nested Loop  (cost=0.57..18.40 rows=1 width=201) (actual time=0.089..0.092 rows=1 loops=1)
+        Buffers: shared hit=6
+        ->  Index Scan using idx_doctor_schedules_doctor on doctor_schedules sc  (cost=0.29..10.08 rows=1 width=12) (actual time=0.026..0.027 rows=1 loops=1)
+              Index Cond: ((doctor_id = 217) AND (weekday = 5))
+              Filter: (start_time = '10:00:00'::time without time zone)
+              Rows Removed by Filter: 1
+              Buffers: shared hit=3
+        ->  Index Scan using doctors_pkey on doctors d  (cost=0.28..8.30 rows=1 width=9) (actual time=0.058..0.059 rows=1 loops=1)
+              Index Cond: (doctor_id = 217)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=184
+Planning Time: 0.623 ms
+Trigger for constraint appointments_patient_id_fkey: time=0.405 calls=1
+Trigger for constraint appointments_doctor_id_fkey: time=0.089 calls=1
+Trigger for constraint appointments_clinic_id_fkey: time=0.219 calls=1
+Execution Time: 1.791 ms
+=== W01 run 3 ===
+Insert on appointments  (cost=0.57..18.40 rows=0 width=0) (actual time=1.061..1.062 rows=0 loops=1)
+  Buffers: shared hit=462 read=1 dirtied=2 written=1
+  ->  Nested Loop  (cost=0.57..18.40 rows=1 width=201) (actual time=0.050..0.053 rows=1 loops=1)
+        Buffers: shared hit=6
+        ->  Index Scan using idx_doctor_schedules_doctor on doctor_schedules sc  (cost=0.29..10.08 rows=1 width=12) (actual time=0.025..0.027 rows=1 loops=1)
+              Index Cond: ((doctor_id = 217) AND (weekday = 5))
+              Filter: (start_time = '10:00:00'::time without time zone)
+              Rows Removed by Filter: 1
+              Buffers: shared hit=3
+        ->  Index Scan using doctors_pkey on doctors d  (cost=0.28..8.30 rows=1 width=9) (actual time=0.021..0.022 rows=1 loops=1)
+              Index Cond: (doctor_id = 217)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=184
+Planning Time: 0.671 ms
+Trigger for constraint appointments_patient_id_fkey: time=0.405 calls=1
+Trigger for constraint appointments_doctor_id_fkey: time=0.113 calls=1
+Trigger for constraint appointments_clinic_id_fkey: time=0.219 calls=1
+Execution Time: 1.868 ms

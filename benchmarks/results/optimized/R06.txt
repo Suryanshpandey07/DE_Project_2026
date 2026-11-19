@@ -1,0 +1,24 @@
+=== R06 run 1 ===
+Index Scan using idx_patients_phone on patients  (cost=0.29..8.31 rows=1 width=23) (actual time=0.034..0.035 rows=1 loops=1)
+  Index Cond: (phone = '9400000090'::text)
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=138
+Planning Time: 0.515 ms
+Execution Time: 0.077 ms
+=== R06 run 2 ===
+Index Scan using idx_patients_phone on patients  (cost=0.29..8.31 rows=1 width=23) (actual time=0.036..0.037 rows=1 loops=1)
+  Index Cond: (phone = '9400000090'::text)
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=138
+Planning Time: 0.505 ms
+Execution Time: 0.090 ms
+=== R06 run 3 ===
+Index Scan using idx_patients_phone on patients  (cost=0.29..8.31 rows=1 width=23) (actual time=0.033..0.033 rows=1 loops=1)
+  Index Cond: (phone = '9400000090'::text)
+  Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=138
+Planning Time: 0.556 ms
+Execution Time: 0.076 ms

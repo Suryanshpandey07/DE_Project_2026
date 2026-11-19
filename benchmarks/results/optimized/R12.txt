@@ -1,0 +1,48 @@
+=== R12 run 1 ===
+Sort  (cost=3157.61..3197.09 rows=15793 width=25) (actual time=24.347..24.349 rows=14 loops=1)
+  Sort Key: (date_trunc('month'::text, slot_start)), consult_type
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3708
+  ->  HashAggregate  (cost=1858.87..2056.29 rows=15793 width=25) (actual time=24.247..24.305 rows=14 loops=1)
+        Group Key: date_trunc('month'::text, slot_start), consult_type
+        Batches: 1  Memory Usage: 793kB
+        Buffers: shared hit=3702
+        ->  Index Only Scan using idx_appointments_2026_type on appointments  (cost=0.29..1466.82 rows=52274 width=17) (actual time=0.028..13.542 rows=51501 loops=1)
+              Heap Fetches: 4579
+              Buffers: shared hit=3702
+Planning:
+  Buffers: shared hit=553
+Planning Time: 1.367 ms
+Execution Time: 24.893 ms
+=== R12 run 2 ===
+Sort  (cost=3157.61..3197.09 rows=15793 width=25) (actual time=28.292..28.294 rows=14 loops=1)
+  Sort Key: (date_trunc('month'::text, slot_start)), consult_type
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3708
+  ->  HashAggregate  (cost=1858.87..2056.29 rows=15793 width=25) (actual time=28.197..28.249 rows=14 loops=1)
+        Group Key: date_trunc('month'::text, slot_start), consult_type
+        Batches: 1  Memory Usage: 793kB
+        Buffers: shared hit=3702
+        ->  Index Only Scan using idx_appointments_2026_type on appointments  (cost=0.29..1466.82 rows=52274 width=17) (actual time=0.028..16.541 rows=51501 loops=1)
+              Heap Fetches: 4579
+              Buffers: shared hit=3702
+Planning:
+  Buffers: shared hit=553
+Planning Time: 1.443 ms
+Execution Time: 28.832 ms
+=== R12 run 3 ===
+Sort  (cost=3157.61..3197.09 rows=15793 width=25) (actual time=24.872..24.874 rows=14 loops=1)
+  Sort Key: (date_trunc('month'::text, slot_start)), consult_type
+  Sort Method: quicksort  Memory: 25kB
+  Buffers: shared hit=3708
+  ->  HashAggregate  (cost=1858.87..2056.29 rows=15793 width=25) (actual time=24.766..24.823 rows=14 loops=1)
+        Group Key: date_trunc('month'::text, slot_start), consult_type
+        Batches: 1  Memory Usage: 793kB
+        Buffers: shared hit=3702
+        ->  Index Only Scan using idx_appointments_2026_type on appointments  (cost=0.29..1466.82 rows=52274 width=17) (actual time=0.030..14.004 rows=51501 loops=1)
+              Heap Fetches: 4579
+              Buffers: shared hit=3702
+Planning:
+  Buffers: shared hit=553
+Planning Time: 1.399 ms
+Execution Time: 25.470 ms
