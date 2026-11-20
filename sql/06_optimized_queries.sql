@@ -75,7 +75,8 @@ SELECT s.spec_name, count(*) AS appointments,
 FROM appointments a
 JOIN doctor_specializations ds ON ds.doctor_id = a.doctor_id AND ds.is_primary
 JOIN specializations s ON s.spec_id = ds.spec_id
-WHERE EXTRACT(YEAR FROM a.slot_start) = 2026
+WHERE a.slot_start >= TIMESTAMP '2026-01-01'
+  AND a.slot_start < TIMESTAMP '2027-01-01'
   AND a.status IN ('COMPLETED', 'NO_SHOW')
 GROUP BY s.spec_name
 ORDER BY no_show_pct DESC;
