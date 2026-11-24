@@ -129,7 +129,11 @@ ORDER BY 1, 2;
 -- @R13
 SELECT c.clinic_id, c.clinic_name, c.city_id
 FROM clinics c
-WHERE c.clinic_id NOT IN (SELECT sc.clinic_id FROM doctor_schedules sc);
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM doctor_schedules sc
+    WHERE sc.clinic_id = c.clinic_id
+);
 
 -- @R14
 WITH review_stats AS (
